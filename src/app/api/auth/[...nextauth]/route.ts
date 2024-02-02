@@ -1,11 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from "next"
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import AzureADProvider from "next-auth/providers/azure-ad"
 
-export default async function auth(req: NextApiRequest, res: NextApiResponse) {
+export default NextAuth({
   // Do whatever you want here, before the request is passed down to `NextAuth`
-  return await NextAuth(req, res, {
       // Options
       providers: [
           GoogleProvider({
@@ -49,5 +47,4 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
       },
       events: {},
       debug: true,
-  })
-}
+})
