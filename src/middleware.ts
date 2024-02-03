@@ -10,7 +10,7 @@ export default withAuth(
       request.nextUrl.pathname === "/" &&
       (request?.nextauth?.token as unknown as Token)
     ) {
-      url.pathname = "/contact";
+      url.pathname = "/";
       return NextResponse.rewrite(url);
     }
   },
