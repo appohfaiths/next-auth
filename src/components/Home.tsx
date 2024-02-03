@@ -1,21 +1,29 @@
 'use client';
-import React from 'react'
-import { useSession, signOut } from 'next-auth/react';
-import { LoginForm } from '.';
+import React, { useEffect } from 'react';
+import { useSession, signOut, signIn } from 'next-auth/react';
 
 export function HomeComponent() {
-    const { data: session } = useSession();
+    const { data: session, status } = useSession();
 
-          if(session){
-            return (
-                <>
-                    <p>Welcome {session.user?.name}. Signed In As</p>
-                    <p>{session.user?.email}</p>
-                    <button onClick={() => signOut()}>Sign out</button>
-                </>
-                )
-          }
+    useEffect(() => {
+        if (!session && status === "unauthenticated") {
+            signIn();
+        }
+    }, [session, status]);
+
+    if (status === "loading") {
+        return <p>Loading...</p>;
+    }
+
+    if (!session) {
+        return null; // or render a loading indicator
+    }
+
     return (
-        <LoginForm />
-    )
+        <>
+            <p>Welcome {session?.user?.name}. Signed In As</p>
+            <p>{session?.user?.email}</p>
+            <button onClick={() => signOut()}>Sign out</button>
+        </>
+    );
 }

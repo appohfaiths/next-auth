@@ -31,7 +31,7 @@ const handler = NextAuth({
     secret: process.env.JWT_SECRET,
   },
   pages: {
-    // signIn: "/"
+    signIn: "/login"
   },
   callbacks: {
     async session({ session, token, user }) {
