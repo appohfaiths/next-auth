@@ -16,6 +16,7 @@ export default withAuth(
   },
 
   {
+    secret: process.env.SECRET,
     callbacks: {
       authorized: ({ token, req }) => {
         if (token || req.nextUrl.pathname === "/") {
