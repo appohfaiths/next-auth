@@ -62,6 +62,14 @@ const handler = NextAuth({
       console.log(token)
       return token;
     },
+    // async signIn({ user, account, profile, email, credentials }) {
+    //   // Check if the email domain is allowed
+    //   if (email && email.endsWith('@hubtel.com')) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // },
   },
   events: {},
   debug: true,

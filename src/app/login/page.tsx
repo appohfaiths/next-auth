@@ -1,9 +1,9 @@
 import { LoginPage } from "@/components";
 
 export default function Login() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <LoginPage />
-    </main>
-  );
+    return (
+        <main className="container mx-auto flex items-center justify-center h-screen">
+            <LoginPage />
+        </main>
+    );
 }
