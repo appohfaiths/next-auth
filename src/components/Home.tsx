@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useSession, signOut, signIn } from 'next-auth/react';
 
-export function HomeComponent() {
+export function HomeComponent(): React.JSX.Element {
     const { data: session, status } = useSession();
 
     useEffect(() => {
@@ -16,7 +16,7 @@ export function HomeComponent() {
     }
 
     if (!session) {
-        return null; // or render a loading indicator
+        return <></>; // or render a loading indicator
     }
 
     return (

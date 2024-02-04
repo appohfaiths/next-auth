@@ -4,7 +4,7 @@ import google from '../../public/icons/google_logo.svg'
 import microsoft from '../../public/icons/microsoft_logo.svg'
 import Image from 'next/image';
 
-export function LoginForm() {
+export function LoginForm(): React.JSX.Element {
   return (
     <div className='flex flex-col gap-5 border-4 border-yellow-300 rounded-xl p-4 w-80'>
       <p className='m-2'>Login to your account to continue</p>
